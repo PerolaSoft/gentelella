@@ -4,16 +4,20 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    babel = require('gulp-babel');
 
 var DEST = 'build/';
 
 gulp.task('scripts', function() {
     return gulp.src([
         'src/js/helpers/*.js',
-        'src/js/*.js',
+        'src/js/custom.js',
       ])
       .pipe(concat('custom.js'))
+      .pipe(babel({
+        presets: ['@babel/env']
+       }))
       .pipe(gulp.dest(DEST+'/js'))
       .pipe(rename({suffix: '.min'}))
       .pipe(uglify())

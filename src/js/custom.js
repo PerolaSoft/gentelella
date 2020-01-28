@@ -4,24 +4,25 @@
  * and open the template in the editor.
  */
 
-var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
-    $BODY = $('body'),
-    $MENU_TOGGLE = $('#menu_toggle'),
-    $SIDEBAR_MENU = $('#sidebar-menu'),
-    $SIDEBAR_FOOTER = $('.sidebar-footer'),
-    $LEFT_COL = $('.left_col'),
-    $RIGHT_COL = $('.right_col'),
-    $NAV_MENU = $('.nav_menu'),
-    $FOOTER = $('footer');
 
 // Sidebar
 function init_sidebar() {
+    const CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
+        $BODY = $('body'),
+        $MENU_TOGGLE = $('#menu_toggle'),
+        $SIDEBAR_MENU = $('#sidebar-menu'),
+        $SIDEBAR_FOOTER = $('.sidebar-footer'),
+        $LEFT_COL = $('.left_col'),
+        $RIGHT_COL = $('.right_col'),
+        $NAV_MENU = $('.nav_menu'),
+        $FOOTER = $('footer');
+
     // TODO: This is some kind of easy fix, maybe we can improve this
-    var setContentHeight = function () {
+    const setContentHeight = function () {
         // reset height
         $RIGHT_COL.css('min-height', $(window).height());
 
-        var bodyHeight = $BODY.outerHeight(),
+        let bodyHeight = $BODY.outerHeight(),
             footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
             leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
             contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
@@ -32,13 +33,13 @@ function init_sidebar() {
         $RIGHT_COL.css('min-height', contentHeight);
     };
 
-    var openUpMenu = function () {
+    const openUpMenu = function () {
         $SIDEBAR_MENU.find('li').removeClass('active active-sm');
         $SIDEBAR_MENU.find('li ul').slideUp();
     }
 
     $SIDEBAR_MENU.find('a').on('click', function (ev) {
-        var $li = $(this).parent();
+        const $li = $(this).parent();
 
         if ($li.is('.active')) {
             $li.removeClass('active active-sm');
@@ -112,7 +113,7 @@ function init_sidebar() {
 // Panel toolbox
 $(document).ready(function () {
     $('.collapse-link').on('click', function () {
-        var $BOX_PANEL = $(this).closest('.x_panel'),
+        const $BOX_PANEL = $(this).closest('.x_panel'),
             $ICON = $(this).find('i'),
             $BOX_CONTENT = $BOX_PANEL.find('.x_content');
 
@@ -130,7 +131,7 @@ $(document).ready(function () {
     });
 
     $('.close-link').click(function () {
-        var $BOX_PANEL = $(this).closest('.x_panel');
+        const $BOX_PANEL = $(this).closest('.x_panel');
 
         $BOX_PANEL.remove();
     });
@@ -156,9 +157,9 @@ $(document).ready(function () {
 // Switchery
 $(document).ready(function () {
     if ($(".js-switch")[0]) {
-        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        const elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
         elems.forEach(function (html) {
-            var switchery = new Switchery(html, {
+            const switchery = new Switchery(html, {
                 color: '#26B99A'
             });
         });
@@ -191,7 +192,7 @@ $('table input').on('ifUnchecked', function () {
     countChecked();
 });
 
-var checkState = '';
+let checkState = '';
 
 $('.bulk_action input').on('ifChecked', function () {
     checkState = '';
@@ -220,7 +221,7 @@ function countChecked() {
         $(".bulk_action input[name='table_records']").iCheck('uncheck');
     }
 
-    var checkCount = $(".bulk_action input[name='table_records']:checked").length;
+    const checkCount = $(".bulk_action input[name='table_records']:checked").length;
 
     if (checkCount) {
         $('.column-title').hide();
@@ -255,4 +256,12 @@ if (typeof NProgress != 'undefined') {
     $(window).on('load', function () {
         NProgress.done();
     });
+}
+
+$(document).ready(function () {
+    init_sidebar();
+});
+
+export {
+    init_sidebar
 }
