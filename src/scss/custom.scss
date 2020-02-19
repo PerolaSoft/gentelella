@@ -432,6 +432,10 @@
   margin-bottom: 10px;
   float: left;
 }
+.main_menu span.fas,
+.main_menu span.fal,
+.main_menu span.fad,
+.main_menu span.fab,
 .main_menu span.fa {
   float: right;
   text-align: center;
@@ -440,6 +444,10 @@
   min-width: inherit;
   color: #C4CFDA;
 }
+.active a span.fas,
+.active a span.fal,
+.active a span.fad,
+.active a span.fab,
 .active a span.fa {
   text-align: right !important;
   margin-right: 4px;
@@ -447,10 +455,18 @@
 .nav-sm .menu_section {
   margin: 0;
 }
+.nav-sm span.fas,
+.nav-sm span.fal,
+.nav-sm span.fad,
+.nav-sm span.fab,
 .nav-sm span.fa,
 .nav-sm .menu_section h3 {
   display: none;
 }
+.nav-sm li li span.fas,
+.nav-sm li li span.fal,
+.nav-sm li li span.fad,
+.nav-sm li li span.fab,
 .nav-sm li li span.fa {
   display: inline-block;
 }
@@ -472,9 +488,7 @@
   top: -8px;
 }
 
-
 @media (min-width: 480px) {
-  
   .nav_menu {
     position: static;
   }

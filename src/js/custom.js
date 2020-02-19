@@ -258,10 +258,8 @@ if (typeof NProgress != 'undefined') {
     });
 }
 
-$(document).ready(function () {
-    init_sidebar();
-});
+// $(document).ready(function () {
+//    init_sidebar();
+//});
 
-export {
-    init_sidebar
-}
+exports.init_sidebar = init_sidebar;

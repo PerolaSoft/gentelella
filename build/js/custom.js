@@ -1,10 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.init_sidebar = init_sidebar;
-
 /**
  * Resize function without multiple trigger
  * 
@@ -275,8 +270,9 @@ if (typeof NProgress != 'undefined') {
   $(window).on('load', function () {
     NProgress.done();
   });
-}
+} // $(document).ready(function () {
+//    init_sidebar();
+//});
 
-$(document).ready(function () {
-  init_sidebar();
-});
+
+exports.init_sidebar = init_sidebar;
