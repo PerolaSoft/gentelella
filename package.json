@@ -4,7 +4,7 @@
   "description": "Gentelella Admin is a free to use Bootstrap admin template",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link:gentelella": "npm link ."
+    "link": "npm link ."
   },
   "repository": {
     "type": "git",
