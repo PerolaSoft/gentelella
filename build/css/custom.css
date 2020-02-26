@@ -1584,6 +1584,9 @@ a:hover, a:focus {
   padding: 9px; }
 
 .panel_toolbox {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   float: right;
   min-width: 70px; }
 
